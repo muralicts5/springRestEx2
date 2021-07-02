@@ -27,6 +27,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
+	
 	@GetMapping
 	public List<Employee> getEmployees(){
 		return employeeService.getEmploees();
@@ -50,12 +51,12 @@ public class EmployeeController {
 	}
 	
 
-	@PostMapping("/post")
+	@PostMapping
 	public Employee insertEmployee(@RequestBody @Valid Employee employee){
 		return employeeService.insertEmployee(employee);
 	}
 
-	@PutMapping("/put")
+	@PutMapping
 	public Employee updateEmployee(@RequestBody @Valid Employee employee){
 		return employeeService.updateEmployee(employee);
 	}

@@ -17,26 +17,25 @@ import java.util.Optional;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.context.WebApplicationContext;
-
-import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 import com.springdemo.springComplete.dao.EmployeeDao;
 import com.springdemo.springComplete.entity.Employee;
 import com.springdemo.springComplete.resources.EmployeeController;
 import com.springdemo.springComplete.service.EmployeeService;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.asyncDispatch;
@@ -52,55 +51,77 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.webAppC
 
 
 @RunWith(SpringRunner.class)
-//@SpringBootTest
-@WebMvcTest(controllers=EmployeeController.class)
-//@WithMockUser(username="user",roles={"USER","ADMIN"})
+@SpringBootTest
+@AutoConfigureMockMvc
 public class EmployeeControllerTest {
 
 		@Autowired
 	 	private MockMvc mockMvc;
 	    
-	    @Autowired
-	    protected WebApplicationContext wac;
-	  
-	    @Autowired
-	    private EmployeeController employeController;
 	  
 	    private List<Employee> employees;
 	
 	    @MockBean
 		private EmployeeService service1;
 		
-	    @Before
-	    public void setup() throws Exception {
-	     //  this.mockMvc = webAppContextSetup(wac).build();// Standalone context
-	     //   this.mockMvc = standaloneSetup(this.employeController).build();// Standalone context
-	        this.employees  = getTestData();
-	    }
-	    
-		@Ignore
-	    @Test
+	     
+	////	@Ignore
+	//    @Test
 		public void testGetEmployees() throws Exception {
-	    		when(service1.getEmploees()).thenReturn(employees);
+	    	System.out.println(service1);
+	    		when(service1.getEmploees()).thenReturn(getTestData());
 	    		mockMvc.perform(get("/employees")
 //	    				.with(httpBasic("user", "password"))
 	    				.contentType(MediaType.APPLICATION_JSON))
 	             .andExpect(status().isOk())
-	             .andExpect(jsonPath("$[0].id", is(1001)))
-	             .andExpect(jsonPath("$[1].id", is(1002)))
+	             .andExpect(jsonPath("$[0].employeeId", is(1001)))
+	             .andExpect(jsonPath("$[1].employeeId", is(1002)))
 	             .andDo(print());
 	    
 	    }
 	    
+	    
+	    @Test
+		public void testGetEmployeeById() throws Exception {
+	    	System.out.println(service1);
+	    		when(service1.getEmployeeById(1001)).thenReturn(getEmployee());
+	    		mockMvc.perform(get("/employees/1001")
+//	    				.with(httpBasic("user", "password"))
+	    				.contentType(MediaType.APPLICATION_JSON))
+	             .andExpect(status().isOk())
+	             .andExpect(jsonPath("$.employeeId", is(1001)))
+	             .andExpect(jsonPath("$.name", is("rakesh")))
+	             .andDo(print());
+	    
+	    }
+	    
+	    
+	   // @Test
+		public void testGetEmployeeByIdFailure() throws Exception {
+	    	System.out.println(service1);
+	    		when(service1.getEmployeeById(1001)).thenReturn(getEmployee());
+	    		mockMvc.perform(get("/employees/1001")
+//	    				.with(httpBasic("user", "password"))
+	    				.contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+	    }
+	    
+	    
+	    private Employee getEmployee(){
+	    	Employee e1=new Employee();
+			e1.setName("rakesh");
+			e1.setEmployeeId(1001);
+		
+			return e1;
+		}
+	    
 	    private List<Employee> getTestData(){
 	    	Employee e1=new Employee();
-			e1.setId(1001);
 			e1.setName("rakesh");
-			e1.setAge(23);
+			e1.setEmployeeId(1001);
 			Employee e2=new Employee();
-			e2.setId(1002);
 			e2.setName("rohit");
-			e2.setAge(254);
+			e2.setEmployeeId(1002);
 			List <Employee> employees=new ArrayList<Employee>();
 			employees.add(e1);
 			employees.add(e2);

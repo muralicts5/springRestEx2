@@ -10,4 +10,5 @@ import com.springdemo.springComplete.entity.Employee;
 public interface EmployeeDao extends JpaRepository<Employee, Integer> {
 
 	Optional<List<Employee>> findByName(String name);
+	
 }

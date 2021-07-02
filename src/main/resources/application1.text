@@ -19,3 +19,76 @@ server:
 
 
 
+15intcde01216
+Pa$$w0rd
+
+5
+
+30-Jun-21
+
+Unit Testing
+
+ 
+
+ 
+
+6
+
+01-Jul-21
+
+Cloud Deployments
+
+ 
+
+7
+
+02-Jul-21
+
+Cloud Deployments
+
+  
+
+8
+
+05-Jul-21
+
+Cloud Deployments
+
+ 
+Authentication
+Naming convention
+Logger
+Validation
+ResponseEntity in the controller
+Global ExceptionHandling
+Comment for business logic
+Return 404 response instead of null
+JUnit
+
+
+
+
+9
+
+06-Jul-21
+
+E2E Testing
+
+
+
+What is Cloud? Difference between on-premise server and cloud offerings - Server, Storage, Service, PAAS, SAAS. Google cloud, Microsoft cloud - Azure, Amazon cloud, Google cloud
+"On-Premises Hosting, Cloud Hosting, AWS Significance, Availability Zones, Regions, Reducing Latency, increased redundancy
+
+EC2, S3, RDS, ELB, EBS, Route53, EB, Dynamo DB, RedShift, VPC, Cloud Front, Cloud Watch, AMI, Instances
+
+Compare and Contrast AWS, Azure, IBM BlueMix, Heroku
+
+Static Website hosting, Free Tier Usage etc.
+
+AMI, Choosing AMI, Choosing Instance Type, Configuring Instance, Adding Storage, Tagging Instance, Configure Security Group"
+"Configure VPC Routing Tables, Use NAT Gateways, Internal IP address allocation for instances, Public and Private subnets, VPC Security - Routing Table, Network ACL, Security Groups
+
+IAM Security Service of AWS, About Group, security policy etc."
+Create a hello world Microservice and make it accessible in cloud by creating necessary VPC, Subnets, Routes and Security groups
+Manual Deployment to EC2 vs. EB, Monitoring in EB
+
