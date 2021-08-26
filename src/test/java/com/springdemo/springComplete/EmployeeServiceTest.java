@@ -4,7 +4,6 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Matchers.any;
 import static org.mockito.Mockito.when;
 
@@ -14,14 +13,11 @@ import java.util.List;
 import java.util.Optional;
 
 import org.hamcrest.core.IsEqual;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 import static org.hamcrest.collection.IsCollectionWithSize.hasSize;
 
 import com.springdemo.springComplete.dao.EmployeeDao;
@@ -30,7 +26,6 @@ import com.springdemo.springComplete.service.EmployeeService;
 
 
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class EmployeeServiceTest {
 
@@ -41,10 +36,6 @@ public class EmployeeServiceTest {
 	
 	    @Autowired
 		private EmployeeService service1;
-		
-	    @Before
-	    public void setUp() throws Exception {
-	    }
 	    
 	    private int add(int a, int b) {
 	    	return a+b;

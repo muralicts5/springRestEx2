@@ -46,9 +46,16 @@ Cloud Deployments
 
 Cloud Deployments
 
-  
+  Apex fronzen
 
 8
+
+St-     5   --> 2 , 1, 1, 1
+Ca --> 10.   -- 5
+Go -->  5
+Ch --> 10 --> 2, 1, 2, 5
+-------------------------
+
 
 05-Jul-21
 
@@ -60,10 +67,39 @@ Naming convention
 Logger
 Validation
 ResponseEntity in the controller
+Return 404 response instead of null
 Global ExceptionHandling
 Comment for business logic
-Return 404 response instead of null
 JUnit
+
+30intcde01216
+Pa$$w0rd
+
+
+
+{}
+[]
+
+200-299 --> success
+
+
+
+response
+Header
+Status code 404
+{ 
+"msg":"no value for given id"
+}
+
+
+
+
+
+
+
+
+
+
 
 
 

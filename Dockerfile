@@ -1,5 +1,10 @@
+FROM amazoncorretto:11
+EXPOSE 8090
+ADD target/employeeService-0.0.1-SNAPSHOT.jar employeeService.jar 
+ENTRYPOINT ["java","-jar","/employeeService.jar"]
+
 # base image -- FROM
-FROM openjdk:8
+#FROM openjdk:8
 
 # install required RUN + apt-get
 # RUN apt-get update
@@ -12,6 +17,6 @@ FROM openjdk:8
 # ADD src /code/src
 # RUN ["mvn", "package"]
 
-ADD /target/springComplete-0.0.1-SNAPSHOT.jar /code1/target/springComplete-0.0.1-SNAPSHOT.jar
+#ADD /target/springComplete-0.0.1-SNAPSHOT.jar /code1/target/springComplete-0.0.1-SNAPSHOT.jar
 
-CMD [ "java","-jar","/code1/target/springComplete-0.0.1-SNAPSHOT.jar" ]
+# CMD [ "java","-jar","/code1/target/springComplete-0.0.1-SNAPSHOT.jar" ]

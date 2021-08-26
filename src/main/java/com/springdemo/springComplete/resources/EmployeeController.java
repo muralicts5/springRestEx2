@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.springdemo.springComplete.entity.Employee;
+import com.springdemo.springComplete.entity.Login;
 import com.springdemo.springComplete.service.EmployeeService;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -68,4 +69,9 @@ public class EmployeeController {
 		 return employeeId+" successfully deleted";
 	}
 	
+	
+	@PostMapping("/dummyLogin")
+	public Login insertEmployee(@RequestBody Login login){
+		return login;
+	}
 }
