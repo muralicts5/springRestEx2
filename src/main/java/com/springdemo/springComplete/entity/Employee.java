@@ -109,7 +109,7 @@ public class Employee {
 	@NotEmpty(message="please enter email")
 	private String email;
 	
-	@NotEmpty
+	//@NotEmpty
 	private String designation;
 	
 }

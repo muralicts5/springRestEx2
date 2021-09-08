@@ -34,20 +34,15 @@ public class SpringCompleteApplication {
 		dao.save(e1);
 		dao.save(e2);
 		dao.save(e3);
-
 	}
 
 	//@Bean
 	public CommandLineRunner commandRunner(ApplicationContext ctx){
 		return (args) -> {
-			
-			
-		
 				Arrays.stream(ctx.getBeanDefinitionNames())
 					.sorted()
 					.forEach(beanName->System.out.println(beanName));
 			};
-
 		}
 	 
 	@Bean
